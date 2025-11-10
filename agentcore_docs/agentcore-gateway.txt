@@ -1,0 +1,27 @@
+# AgentCore Gateway
+
+## Guides
+- [Setting up a Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-building.html): This chapter provides detailed guidance on building with Amazon Bedrock AgentCore Gateway, including creating gateways, adding targets, and connecting agents.
+- [Setting up inbound Auth](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-inbound-auth.html): Before creating your Gateway, you need to set up inbound auth to validate callers attempting to access targets through your Amazon Bedrock AgentCore Gateway.
+- [Using a Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-using.html): This chapter explains how to use a Amazon Bedrock AgentCore Gateway to connect agents with tools and resources.
+- [Amazon Bedrock AgentCore Gateway: Securely connect tools and other resources to your Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html): This chapter explains how your agent can call tools through a Amazon Bedrock AgentCore gateway.
+
+## AgentCore SDK
+- [AgentCore Gateway](https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/documentation/docs/user-guide/gateway/quickstart.md): Learn about how to develop Gateway using AgentCore SDK
+
+## Examples
+- [Adding Lambda targets to your gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-add-target-lambda.html): Lambda targets allow you to connect your gateway to AWS Lambda functions that implement your tools. This is useful when you want to execute custom code in response to tool invocations.
+- [Quick Start with creating and using a Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-quick-start.html): This section provides quick start examples for creating a gateway and using it with different frameworks.
+
+## Concepts
+- [Core concepts for Amazon Bedrock AgentCore Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-core-concepts.html): This chapter explains the core concepts of Amazon Bedrock AgentCore Gateway, including Gateway, Gateway Target, and Authorization.
+- [Setting up Outbound Auth](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-outbound-auth.html): Outbound Auth lets Amazon Bedrock AgentCore gateways securely access gateway targets on behalf of users authenticated and authorized during Inbound Auth . For more information on Auth overview, see .
+
+## Reference
+- [Creating gateways](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/create-gateway.html): This guide walks you through the process of creating and configuring an Amazon Bedrock AgentCore Gateway. The Gateway serves as a unified entry point for agents to access tools and resources through the Model Context Protocol (MCP) and creating it is the first step in building your tool integration platform. When you create a gateway, you establish a managed service that handles authentication, request transformation, and routing capabilities across your infrastructure.
+- [Creating your Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/create-gateway-methods.html): Once you have set up your identity provider, you can create your Gateway using one of the following methods:
+- [Adding targets to an existing gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-building-adding-targets.html): After , you can add targets which define the tools that your gateway will host. Gateway supports multiple target types including Lambda functions and API specifications (either OpenAPI schemas or Smithy models). Gateway allows you to attach multiple targets to a Gateway and you can change the targets / tools attached to a gateway at any point. Each target can have its own credential provider attached enabling you to securely access targets whether they need IAM, API Key, or OAuth credentials. Note: the authorization grant flow (three-legged OAuth) is not supported as a target credential type.
+- [Prerequisites to set up a gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-prerequisites-permissions.html): Amazon Bedrock AgentCore Gateway can connect to both AWS resources and external services. This means that along with the standard AWS Identity and Access Management (IAM) for managing permissions in Amazon Bedrock AgentCore Gateway, the permissions model supports additional external authentication mechanisms.
+- [Adding Smithy targets to your Gateway](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-building-smithy-targets.html): Smithy is a language for defining services and SDKs that works well with Gateway. Smithy models provide a more structured approach to defining APIs compared to OpenAPI, and are particularly useful for connecting to AWS services.
+- [Adding an OpenAPI target](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-schema-openapi.html): OpenAPI (formerly known as Swagger) is a widely used standard for describing RESTful APIs. Gateway supports OpenAPI 3.0 specifications for defining API targets.
+- [Using a Gateway with MCP](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-using-mcp.html): Gateway implements the Model Context Protocol (MCP), which provides a standardized way for agents to discover and invoke tools. The gateway exposes two main MCP operations:

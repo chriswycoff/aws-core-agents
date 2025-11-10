@@ -1,0 +1,37 @@
+# AgentCore Memory
+
+## Guides
+- [Delete memory records](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/delete-memory-records.html): Learn how to remove specific memory records from AgentCore Memory.
+- [Create AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/create-memory.html): Learn how to create a new AgentCore Memory resource.
+- [Configure AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/configure-memory.html): Learn how to configure AgentCore Memory settings for your AI agent.
+- [Extraction prompts](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/custom-prompts-extraction.html): Learn how to customize prompts for extracting and consolidating different types of memory.
+- [Delete AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/delete-memory.html): Learn how to delete an AgentCore Memory resource when it
+- [Prompts for custom memory strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/custom-prompts.html): Learn how to customize prompts for extracting and consolidating different types of memory.
+- [Getting started with AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-getting-started.html): This section walks you through the process of installing dependencies and implementing both short-term and long-term memory features for your AI agents.
+- [Long-term memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-memory.html): Learn how long-term memory stores structured information extracted from raw agent interactions.
+- [List AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/list-memory.html): Learn how to list all available AgentCore Memory resources in your account.
+- [List memory records](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/list-memory-records.html): Learn how to list memory records from a specific namespace.
+- [Get AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/get-memory.html): Learn how to retrieve information about an existing AgentCore Memory.
+- [Add memory to your AI agent](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html): Learn how to useAgentCore Memory to enable your AI agents to retain knowledge and build context over time.
+- [Memory strategies](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-strategies.html): Learn about different memory strategies for processing information from conversations into long-term memory.
+- [Retrieve memory records](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/retrieve-memory-records.html): Learn how to search for relevant memory records using semantic queries.
+- [Memory scoping with namespaces](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/session-actor-namespace.html): Understand how sessions, actors, and namespaces organize memory in AgentCore Memory.
+- [Storage encryption and security](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/storage-encryption.html): Learn about encryption options and security best practices for AgentCore Memory.
+- [Update AgentCore Memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/update-memory.html): Learn how to modify an existing AgentCore Memory configuration.
+- [Short-term memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/short-term-memory.html): Learn how short-term memory stores raw interactions to maintain context.
+- [System prompts (non-editable) for extraction and consolidation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/system-prompts.html): Learn about the non-editable system prompts that are appended to your custom prompts.
+
+## AgentCore SDK
+- [AgentCore Memory](https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/documentation/docs/user-guide/memory/quickstart.md): Learn about how to develop Memory using AgentCore SDK
+
+## Examples
+- [Consolidation prompts](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-consolidation-prompts.html): The consolidation step identifies if existing memories with the same namespace should be deleted or updated. AgentCore Memory checks that new memories are not duplicated or contradicting before merging them with existing memories. This is needed for Semantic or User Preference strategy. The below are sample prompts for consolidation. These can be used in "appendToPrompt" field in SemanticOverrideConsolidationConfiguration, UserPreferenceConsolidationConfiguration, or SummaryConsolidationConfiguration within CustomMemoryStrategy in
+- [Putting it all together: A customer support AI agent](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/putting-it-together.html): See how short-term and long-term memory work together in a practical example.
+
+## Concepts
+- [Prerequisites](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/prerequisites.html): Learn about important concepts before using AgentCore Memory.
+
+## Reference
+- [Store and use long-term memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/long-term-memory-operations.html): Learn how to access and manage long-term memory records.
+- [How it works](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory-overview.html): Learn how AgentCore Memory APIs work together to provide memory capabilities for your AI agents.
+- [Store and use short-term memory](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/short-term-memory-operations.html): Learn how to store and retrieve short-term memory using events.

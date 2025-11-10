@@ -1,0 +1,29 @@
+# AgentCore Browser
+
+## Guides
+- [Deleting an AgentCore Browser](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-delete.html): When you no longer need a browser tool, you can delete it to free up resources. Before deleting a browser tool, make sure to stop all active sessions associated with it.
+- [Get AgentCore Browser tool](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-get.html): You can get information about the Browser tool in your account and view their details, status, and configurations.
+- [Listing AgentCore Browser tools](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-list.html): You can list all browser tools in your account to view their details, status, and configurations.
+- [Resource and session management](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-resource-session-management.html): The following topics show how the Amazon Bedrock AgentCore Browser works and how you can create the resources and manage sessions.
+- [Resource management](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-resource-management.html): The AgentCore Browser provides two types of resources:
+- [Session management](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-session-characteristics.html): The AgentCore Browser sessions have the following characteristics:
+- [Getting Started with AgentCore Browser](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-onboarding.html): The following sections show how you can get started with the AgentCore Browser tool.
+- [Get Browser session](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-session-get.html): You can get information about a browser session that you have created.
+- [Listing browser sessions](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-list-sessions.html): You can list all active browser sessions to monitor and manage your resources. This is useful for tracking active sessions, identifying long-running sessions, or finding sessions that need to be stopped.
+- [Observability and session replay](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-observability.html): The AgentCore Browser provides the following observability features:
+- [Starting a browser session](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-start-session.html): After creating a browser, you can start a session to interact with web applications.
+- [Interact with web applications using Amazon Bedrock AgentCore Browser](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-tool.html): Learn how to use the AgentCore Browser built-in tool in Amazon Bedrock AgentCore to interact with web applications in a secure environment.
+- [Stopping a browser session](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-stop-session.html): When you are finished using a Browser session, you should stop it to release resources and avoid unnecessary charges.
+- [Updating browser streams](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-update-stream.html): You can update browser streams to enable or disable automation. This is useful when you need to enter sensitive information like login credentials that you don
+
+## AgentCore SDK
+- [AgentCore Browser](https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/documentation/docs/user-guide/builtin-tools/quickstart-browser.md): Learn about how to develop Browser using AgentCore SDK
+
+## Examples
+- [Building browser agents](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-building-agents.html): You can build browser agents using various frameworks and libraries to automate web interactions. This section demonstrates how to build browser agents using different frameworks.
+- [Use cases and code examples](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-use-cases.html): The AgentCore Browser can be used for a wide range of use cases, enabling AI agents to interact with web applications just as humans do. This section describes common use cases and provides Python code examples for implementation provided in conjunction with the Amazon Bedrock AgentCore SDK.
+
+## Reference
+- [Rendering live view using AWS DCV Web Client](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-dcv-integration.html): Amazon Bedrock AgentCore
+- [Creating an AgentCore Browser](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-create.html): You can create a Browser Tool using the Amazon Bedrock AgentCore console, AWS CLI, or AWS SDK.
+- [Interacting with a browser session](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/browser-interact.html): Once you have started a Browser session, you can interact with it using the WebSocket API.

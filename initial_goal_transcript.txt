@@ -1,0 +1,812 @@
+0:00
+So the number one conversation that I
+0:02
+have with developers who are building
+0:04
+agentic systems goes along the lines of
+0:07
+this. Hi, I'm making an agent with Crew
+0:11
+AI or Langchain or Strands agents. Now I
+0:15
+need to get this into production. I need
+0:17
+it to scale. I need it to be secure. And
+0:19
+I say, whoa, whoa, whoa, hold on a
+0:22
+minute. That's what AWS does best. So
+0:26
+hold my mouse and I will show you how.
+0:31
+So here is some agent code. It uses
+0:34
+Strand's agents SDK and it runs just
+0:36
+fine on my machine. To get this running
+0:39
+at scale securely inside of AWS, we can
+0:43
+deploy it using Amazon Bedrock Agent
+0:45
+Core runtime. So, let me just add in the
+0:49
+agent core SDK, create an instance of
+0:53
+the app, then wrap my invocation, and
+0:57
+that's all I need to do to get this code
+0:59
+ready for agent core. Using the agent
+1:02
+core starter kit CLI, I can run
+1:04
+configure, and then I can launch. And
+1:08
+now my agent is built for me into a
+1:10
+container and ready in agent core
+1:13
+runtime. I can test it with the toolkit
+1:16
+CLI like this. And this is just one of
+1:19
+the capabilities of agent core. So agent
+1:22
+core runtime which we just saw is a new
+1:25
+type of serverless compute environment
+1:27
+built specially for AI agents. What's
+1:30
+great is that it can keep your agent up
+1:32
+and running for up to eight hours at a
+1:34
+time with each session getting its own
+1:37
+microVM. So you've got complete session
+1:40
+isolation. And unlike Lambda functions
+1:43
+which are themselves serverless
+1:45
+powerhouses, after you invoke a runtime
+1:48
+session, you can come back to it again
+1:51
+and again and again. You can call it
+1:53
+multiple times while the session is
+1:55
+still active and it works with streaming
+1:58
+data as well. Runtime is awesome. Then
+2:01
+there's memory. It handles your agents
+2:04
+session state. So think conversational
+2:06
+history and long-term storage. So things
+2:09
+like user preferences, memory is fully
+2:12
+managed, customizable, and scales
+2:15
+independently from your agent. So you
+2:18
+can just bolt it in and go. Gateway lets
+2:21
+you turn your existing APIs and Lambda
+2:24
+functions into MCP tools that your
+2:27
+agents can use or someone else's agents
+2:30
+can use. Then there's code interpreter
+2:33
+for secure code execution and the
+2:35
+browser tool for web interactions. Both
+2:38
+of these again are fully managed cloud
+2:40
+hosted services. So you don't need to
+2:43
+build and manage and scale your own
+2:45
+containers. And then there's agent core
+2:47
+identity and agent core observability
+2:50
+which are both specialized services for
+2:53
+identity and observability in the
+2:55
+agentic world. So just a quick note on
+2:58
+how we get access to agent core. Just
+3:01
+like other AWS services, there's a base
+3:04
+API. So for agent core, this is split
+3:06
+between a control plane API and a data
+3:09
+plane API. So think of this as at
+3:12
+configuration time and at runtime. So
+3:16
+these APIs are available via the SDKs
+3:19
+that you know and love. So for example,
+3:21
+Bodto 3 for Python. On top of this,
+3:24
+there's a specialized agent core SDK.
+3:27
+This is a Python SDK with more languages
+3:29
+to follow that builds on the base API
+3:32
+and provides some convenience methods
+3:34
+and functions to make it quick and easy
+3:37
+to integrate agent core into your code.
+3:39
+So an example of this is in the runtime
+3:42
+code that we deployed before. Um we used
+3:45
+this SDK to add a decorator to the
+3:49
+invocation method. That was the SDK. And
+3:52
+then finally, we have the starter
+3:54
+toolkit, a CLI tool that we've been
+3:56
+using to get started quickly. So, it
+3:58
+builds the containers, it helps us test
+4:00
+our agents, it does things like that.
+4:02
+So, as you progress with agent core, you
+4:04
+might depend less and less on the
+4:06
+starter toolkit, but it's a great place
+4:08
+to get started and that's why we're
+4:10
+using it today. All right, let's jump
+4:12
+back into the code and see how we can
+4:14
+update our agent to use agent core
+4:16
+memory. And so this is my updated code
+4:20
+that I've got so that my agent can make
+4:22
+use out of memory. So you'll see here
+4:24
+that we've got the SDK import that we
+4:26
+had before for runtime, but now we've
+4:28
+got a couple in here as well for memory
+4:30
+as you might imagine. And so we've got
+4:32
+two. We've got an integrations that
+4:33
+works with strands config and an
+4:36
+integrations that works with strands
+4:37
+session manager. And so this is
+4:40
+specifically for Strand's agents. And so
+4:42
+if you're using a different kind of
+4:44
+framework such as Langchain or Crew AI,
+4:46
+then you can still completely do this.
+4:48
+Um there are integrations available with
+4:50
+some frameworks. Um and you can also of
+4:52
+course use the SDK directly or the API
+4:54
+directly to be able to build this into
+4:56
+anything that you want. What's happened
+4:58
+here is that the Strands agents
+5:00
+community has worked to build these
+5:02
+integrations in. So we've got sessions
+5:05
+manager and config. Let's go and see
+5:07
+where they're used. Um before we get
+5:08
+there, we've got this which is passed
+5:10
+in. So this is a an ID for the instance
+5:14
+of memory that we're going to connect
+5:16
+to. Now for us in this particular case
+5:18
+that's going to be set up for us by the
+5:20
+starter toolkit. So we'll have a look at
+5:22
+that in just a moment. Um so if we just
+5:24
+scroll down here, I'm just going to skip
+5:26
+over this for now, but I'll be back here
+5:27
+in just a moment. Um let's just go and
+5:29
+have a look at the way that the agents
+5:30
+built up. So here's the agent code. Very
+5:33
+similar to what we had before, but now
+5:35
+we've got this session manager here. And
+5:38
+so the session manager is configured
+5:40
+with the memory configuration there. So
+5:43
+we've got the agent core um memory
+5:45
+session manager object configured with
+5:47
+the memory configuration. So we've got
+5:49
+to have a look at that. Um well here it
+5:51
+is just up above here. Um and there's a
+5:54
+couple of things here that are going
+5:55
+into the configuration so that the agent
+5:58
+can connect to the right part of the
+6:01
+memory which has been um set up for this
+6:04
+type of agent for this agent on my
+6:06
+setup. And so those two things are the
+6:09
+session ID and the actor ID. Of course,
+6:11
+we have the memory ID itself so that we
+6:13
+can connect to the right memory. Then we
+6:15
+have session ID and actor ID. So this
+6:19
+means that when we're connecting with
+6:21
+memory, not only are we connecting to
+6:23
+the right memory, that I guess that's
+6:24
+the memory ID, but we also connect to
+6:27
+the memory which is to do with this
+6:29
+particular user, that's the actor ID,
+6:31
+and then this particular session, that's
+6:33
+the session ID. Um, and that means then
+6:36
+that we can get things like the
+6:38
+short-term memory from this session, but
+6:40
+we can also get long-term memories from
+6:42
+this particular user across all sessions
+6:45
+if that's what we wanted to do. And this
+6:47
+is just a simple example of how to get
+6:49
+set up with memory. Now, the other thing
+6:51
+that you might have noticed is that this
+6:53
+agent is actually contained inside of
+6:56
+this function called get or create
+6:58
+agent. And that's because we've got a
+7:01
+bit of a race condition which happens
+7:03
+here when our agent is invoked. So these
+7:06
+two values, the session ID and the actor
+7:08
+ID, these are only available to us when
+7:12
+our agent gets invoked. But we need to
+7:15
+have the agent in order for it to be
+7:18
+invoked. So how do we deal with that?
+7:20
+Well, if I scroll down to the
+7:22
+invocation, the entry point that we've
+7:24
+set up for agent core, what you'll
+7:26
+notice is that it goes and runs. it goes
+7:29
+and gets the agent from get or create
+7:32
+agent. And we're doing some lazy loading
+7:34
+here. So, if this is the first time it's
+7:36
+been called, then we look at our global
+7:39
+agent variable. That's just one way to
+7:41
+do it. Um, and if that doesn't exist, if
+7:44
+it's none, then we go ahead and create
+7:46
+that agent and then we return it. If we
+7:49
+come back and we're invoking our agent
+7:51
+again within our up to 8 hours of
+7:55
+runtime that's possible with agent core
+7:57
+runtime then if we're coming back again
+8:00
+we go and get the existing agent so we
+8:02
+don't have to make it again we don't
+8:04
+have to connect to memory again all of
+8:06
+those sort of uh computationally
+8:08
+expensive things we don't have to do
+8:09
+again so we're doing our lazy loading
+8:11
+and that's all we need to do and then
+8:13
+the rest of the invocation is pretty
+8:15
+much just like we had before. So, we're
+8:17
+back on the command line now and we're
+8:19
+going to use the starter toolkit to
+8:21
+configure our agent again and then
+8:23
+launch our agent again. And this time,
+8:25
+we'll step through in a little bit more
+8:27
+detail so that we can see what's going
+8:28
+on and we can see where we actually set
+8:31
+up memory. So, I'm going to go ahead and
+8:33
+enter on this. And so, what's happening
+8:35
+here is that the starter toolkit is
+8:37
+stepping us through all the necessary
+8:38
+bits and pieces that we need to get the
+8:40
+agent set up. So, it will create a RO
+8:43
+for us. It will do all the ECR
+8:45
+configuration for us where it's going to
+8:47
+use code build to actually build up our
+8:49
+container and then put it into ECR which
+8:52
+is a container repository for us. So
+8:54
+that's all managed for us in the
+8:55
+background by the starter toolkit. I do
+8:58
+then need to select the dependency file.
+9:01
+So this is our pi project toml file or
+9:03
+it could be a requirements.txt if that's
+9:05
+how you're working. Um and I just need
+9:07
+to go and select the one from my
+9:10
+deployment directory that I set up. So
+9:12
+there it is. That's my PI project toml
+9:14
+file. Um then it's going to ask me about
+9:17
+whether I want to set up some um more
+9:19
+sophisticated authentication using
+9:20
+oorthth which I don't for now. So I'm
+9:22
+going to say no. Do I want to do any
+9:24
+request header allow listing? I don't
+9:26
+for now. So I'm going to say no. Um and
+9:28
+then it's going to move on to the memory
+9:30
+configuration. So it's saying here that
+9:32
+I do ex have an existing memory set up
+9:34
+inside of my account. Um so I have a
+9:36
+couple of options. I can either use that
+9:38
+memory or I can create a new memory or I
+9:41
+can skip if I don't want to. And so the
+9:43
+first time I launched this agent, I
+9:45
+skipped because I wasn't using memory.
+9:47
+This time I'm going to press enter to
+9:49
+create a new memory storage area for my
+9:53
+agent. So let's press enter. And it
+9:55
+says, do you want to enable long-term
+9:56
+memory extraction? So yes, yes, I do.
+9:59
+Um, and that's the configuration setup.
+10:02
+Now, it's important to know that this
+10:03
+configuration step didn't actually
+10:05
+deploy anything. What that's doing is
+10:07
+setting up the configuration files ready
+10:09
+for us to do the deployment using the
+10:11
+launch command. So if I use the agent
+10:13
+core launch command, um then it's going
+10:16
+to go through all of those steps. It's
+10:17
+going to um package up my agent. Um it's
+10:20
+going to use uh code build to actually
+10:23
+build up the container. It's going to
+10:25
+put it into ECR for us and it's going to
+10:27
+put it up into agent core runtime. So
+10:30
+look, the starter toolkit really is very
+10:33
+helpful. And now the launch command has
+10:35
+finished. I'm just going to give it a
+10:36
+couple more minutes just to make sure
+10:37
+that memory has finished its setup and
+10:39
+then we can go ahead and do some test
+10:42
+invocation. So, as we saw briefly
+10:44
+before, we can use the starter toolkit
+10:46
+to invoke our agent from our laptops
+10:49
+even though this is running up in the
+10:51
+cloud. So, I can just send this invoke
+10:53
+command. I'm just going to say hello to
+10:55
+the agent and see how it responds to us.
+10:58
+Now, one thing to note is that with the
+10:59
+agent code that we're using in this
+11:01
+tutorial, in this example, um it doesn't
+11:04
+use a streaming response. Even though
+11:05
+runtime totally can use a streaming
+11:07
+response, it doesn't use it. And so, in
+11:10
+this case, we have to wait for the
+11:12
+entire response before it's going to be
+11:13
+sent back to us. Anyway, that's happened
+11:15
+whilst I've been talking and it's saying
+11:18
+hello and getting back to us and talking
+11:20
+about having a conversation with us. So,
+11:22
+let's go ahead and try and use some of
+11:24
+its capability with its new memory
+11:26
+capability. So, I'm going to paste in a
+11:28
+command here to invoke. Um, and look,
+11:30
+I'm saying here, remember that I
+11:32
+absolutely love hot tea, especially Earl
+11:34
+Gray, and I prefer it with a splash of
+11:36
+milk and one sugar. I'm also sending in
+11:39
+a specific session ID. I do that so I
+11:41
+can just be in control of it here as I'm
+11:43
+invoking it from my command line. And I
+11:45
+also send in an actor ID as well, just
+11:47
+for now of user one, two, three. So,
+11:49
+let's send that into the agent. Um, and
+11:52
+see what it responds to us with. Um, it
+11:54
+will probably just say, "That's very
+11:56
+interesting, isn't it?" because I didn't
+11:57
+actually ask it a specific question. Um,
+12:00
+so it says, "Yeah, I'll remember that
+12:01
+you absolutely love hot tea,
+12:03
+particularly Earl Gray." And then it
+12:04
+talks some more about my preference of
+12:06
+tea. Okay, so I've waited 20 or 30
+12:09
+seconds because it takes just a little
+12:11
+bit of time for a long-term memory to be
+12:13
+sort of realized and persisted. So now
+12:16
+I'm going to come back and I'm going to
+12:18
+talk to my agent again. So let me just
+12:20
+paste in another command here. Now this
+12:22
+time I'm saying what kind of hot drinks
+12:24
+do I like and how do I prefer them to be
+12:27
+prepared. Now in this case I'm sending
+12:30
+in a session ID again but notice at the
+12:32
+end here rather than hyphen A which is
+12:34
+what we had before I've now got hyphen
+12:36
+B. That means that I'm going to be
+12:39
+talking to this agent in a different
+12:40
+session. So this is a different um
+12:43
+container microVM which is being spun up
+12:46
+for me. different runtime environment, a
+12:48
+different session, but I've got the same
+12:50
+actor ID coming in. So, I want to see
+12:53
+here that my agent has retained this
+12:56
+long-term memory. And in effect, this
+12:59
+could be me coming back to the agent the
+13:01
+next day or the day after or in a couple
+13:03
+of weeks time. So, let's just hit enter
+13:05
+on that and see what happens. And the
+13:08
+agent comes back with, "Yeah, based on
+13:10
+our previous conversations, you've
+13:11
+shared that you absolutely love hot tea
+13:13
+with Earl Grey being a particular
+13:15
+favorite." So there we go. The memory
+13:17
+has remembered my user preference and in
+13:20
+this case it's my preference for T.
+13:22
+Integrating code interpreter is easy as
+13:25
+well. Um we could for example switch out
+13:27
+the calculator tool that we've been
+13:28
+using for code interpreter and then
+13:31
+update the agent and now our agent has
+13:33
+access to a secure code execution
+13:36
+environment. Finally, sometimes we just
+13:39
+need to see what's going on inside of
+13:40
+our agent. If you've got Docker running
+13:42
+on your machine, then you can use the
+13:44
+starter toolkit to build and run your
+13:47
+agent core runtime container on your own
+13:49
+machine. When your agent's deployed, you
+13:52
+can use the starter toolkit again and it
+13:54
+gives you the command you need to tail
+13:56
+the logs out of Cloudatch. And when you
+14:00
+want more detail and more detailed
+14:02
+analysis of specifically the agentic
+14:05
+loop and the performance of your agent,
+14:07
+then there's a URL to get to the
+14:10
+observability dashboard for your agent.
+14:13
+Lots of information in there. So there
+14:15
+you have it. We've taken an agent from
+14:17
+running locally on my machine to being
+14:20
+production ready in just a few minutes
+14:22
+with memory and code interpreter and
+14:24
+observability. Of course, there's so
+14:27
+much more. Agent Core gives you a
+14:29
+complete platform for building
+14:31
+enterprisegrade Agentic applications.
+14:33
+All of the code from this video is
+14:35
+available in a blog post over on the AWS
+14:38
+Builder Center. The link is in the
+14:40
+description below, of course, and the
+14:42
+post includes a lot more detail on all
+14:44
+of the steps that I took and exactly
+14:46
+what you need to get started. And if you
+14:49
+use Crew AI or Langchain or Llama Index,
+14:52
+well, maybe give Strand's agents a go.
+14:54
+But if you do use those frameworks, then
+14:56
+I'll add some links in the description
+14:58
+to posts on getting started on those
+15:00
+frameworks with agent core as well. The
+15:03
+best part of all of this is you can just
+15:05
+use the capabilities of agent core that
+15:08
+make sense for your existing or new
+15:10
+project. So bolt in some memory or add
+15:13
+that code interpreter, scale the code
+15:15
+with runtime, use whatever framework you
+15:18
+want, use whatever LLM you want. you do
+15:23
+you and do it on Agent Core and then let
+15:26
+me know what you're doing. Pop in the
+15:28
+comments below. If you've got any
+15:30
+questions, then don't hesitate to reach
+15:32
+out. You can find out how to get in
+15:34
+touch with me in the description below.
+15:36
+If you've enjoyed this video and want to
+15:38
+see more like it, then subscribe to the
+15:40
+AWS Developers YouTube channel and click
+15:43
+on the notification bell so that you
+15:45
+know when a new video is being posted.
+15:48
+Thank you so much for watching and I'll
+15:50
+see you in another video. really soon.

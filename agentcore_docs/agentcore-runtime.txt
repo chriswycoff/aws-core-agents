@@ -1,0 +1,29 @@
+# AgentCore Runtime
+
+## Guides
+- [Host agent or tools with Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agents-tools-runtime.html): Learn how to host agents or tools using Amazon Bedrock AgentCore Runtime, a secure, serverless runtime purpose-built for deploying and scaling dynamic AI agents and tools.
+- [Getting started with Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-getting-started.html): Learn how Amazon Bedrock AgentCore Runtime lets you use any agent framework
+- [Get started with the Amazon Bedrock AgentCore Runtime starter toolkit](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-getting-started-toolkit.html): This guide walks you through the process of preparing, deploying, and invoking your agent using Amazon Bedrock AgentCore.
+- [Use isolated sessions for agents](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-sessions.html): Learn how to use isolated sessions to maintain context across multiple invocations while ensuring complete security and data isolation between users.
+- [Troubleshoot AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-troubleshooting.html): This guide provides solutions to common issues when working with AgentCore Runtime. It covers deployment problems, invocation errors, and container-related issues to help you quickly diagnose and resolve problems with your agent runtimes.
+- [Observe agents in Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-observability.html): Learn how to monitor, track, and understand the internal decision-making processes and behaviors of your agents.
+- [Permissions for AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-permissions.html): To run agent or tool in AgentCore Runtime you need an AWS Identity and Access Management execution role. For information about creating an IAM role, see IAM role creation .
+- [Authenticate and authorize with Inbound Auth and Outbound Auth](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-oauth.html): Learn how to set up authentication and authorization for your agent runtime using OAuth and JWT bearer tokens.
+
+## AgentCore SDK
+- [AgentCore Runtime](https://github.com/aws/bedrock-agentcore-starter-toolkit/blob/main/documentation/docs/user-guide/runtime/quickstart.md): Learn about how to develop Runtime using AgentCore SDK
+
+## Examples
+- [Stream agent responses](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/response-streaming.html): The following Strands Agents example shows how an AgentCore Runtime agent can stream a response back to a client.
+
+## Concepts
+- [How it works](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-how-it-works.html): Learn how the AgentCore Runtime provides a fully managed, purpose-built environment for deploying and running AI agents or tools in the cloud.
+- [Understanding the AgentCore Runtime service contract](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-service-contract.html): Learn about the Amazon Bedrock AgentCore service contract that defines the standardized communication protocol for your agent applications to integrate with the AgentCore Runtime hosting.
+
+## Reference
+- [AgentCore Runtime versioning and endpoints](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agent-runtime-versioning.html): Learn how Amazon Bedrock AgentCore implements automatic versioning for agent runtimes and how to manage different configurations using endpoints.
+- [Getting started without the starter toolkit](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/getting-started-custom.html): Learn how to deploy a custom agent to AgentCore Runtime using FastAPI and Docker. This guide walks you through creating, testing, and deploying a containerized agent that meets the Amazon Bedrock AgentCore requirements.
+- [Invoke an AgentCore Runtime agent](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-invoke-agent.html): Learn how to use the InvokeAgentRuntime operation to send requests to agent runtime endpoints and receive streaming responses.
+- [Handle asynchronous and long running agents with Amazon Bedrock AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-long-run.html): Learn how to implement asynchronous processing in the Amazon Bedrock AgentCore SDK to handle long-running operations without blocking responses.
+- [Deploy MCP servers in AgentCore Runtime](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-mcp.html): Learn how to create, test, and deploy your first Model Context Protocol (MCP) server using the AgentCore Runtime.
+- [Use any foundation model](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/using-any-model.html): Learn how Amazon Bedrock AgentCore Runtime lets you use any foundation model

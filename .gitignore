@@ -1,0 +1,20 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# AgentCore configuration (contains AWS ARNs, account IDs, memory IDs)
+.bedrock_agentcore.yaml
+.bedrock_agentcore/
+
+# OS files
+.DS_Store
+
+# Python version (optional - uncomment if you want to track this)
+# .python-version
